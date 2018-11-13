@@ -12,7 +12,7 @@ img2=cv2.imread(path,0)
 
 #afficher l'image avec opencv
 #cv2.imshow('image',img)
-#cv2.waitKey(0) #attente d'une entrée clavier pour fermer la fenêtre
+#cv2.waitKey(0) & 0xFF #attente d'une entrée clavier pour fermer la fenêtre
 #cv2.destroyAllWindows()
 
 #afficher l'image avec matplotlib
