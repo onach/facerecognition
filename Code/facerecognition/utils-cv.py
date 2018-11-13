@@ -1,10 +1,8 @@
-import cv2
+﻿import cv2
 
-def load_and_display_image(filenale) :
-    monimage = cv2.imread(filenale,1)
-    cv2.imshow('tetris',monimage)
-    cv2.waitKey(0)
+def load_and_display_image(filename):
+    """Fonction permettant à partir du chemin d'acces filename, de charger et d'afficher l'image."""
+    img=cv2.imread(filename)
+    cv2.imshow("image",img)
+    cv2.waitKey(0) & 0xFF
     cv2.destroyAllWindows()
-
-
-load_and_display_image("C:\\Users\\Olivier CS\\Desktop\\CodingW\\facerecognition\\Code\\Data\\tetris_blocks.png")
