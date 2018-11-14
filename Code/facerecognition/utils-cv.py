@@ -54,7 +54,7 @@ def face_or_not(filename):
         return([True,faces])
 
 def face_detection(filename):
-    '''Fonction qui encadre la position d'un visage reconnu par un rectangle de couleur'''
+    '''Fonction qui encadre la position d'un visage reconnu par un rectangle bleu'''
     if face_or_not(filename)[0] == True:
         img = cv2.imread(filename)
         faces = face_or_not(filename)[1]
@@ -73,4 +73,4 @@ def select_and_print_image_in_pic(filename):
         display_image(face_image)
 
 #face_detection("/Users/henridurliat/Desktop/facerecognition/Code/Data/test.jpg")
-select_and_print_image_in_pic("/Users/henridurliat/Desktop/facerecognition/Code/Data/test.jpg")
+select_and_print_image_in_pic("/Users/henridurliat/Desktop/facerecognition/Code/Data/test2.jpg")
