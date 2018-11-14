@@ -2,7 +2,7 @@ import cv2
 
 
 chemin_morgan="C:/Users/proprietaire/Desktop/codingweek/facerecognition/facerecognition/Code/Data"
-chemin_henri = "/Users/henridurliat/Desktop/facerecognition/Code/Data"
+chemin_henri = "/Users/henridurliat/Desktop/facerecognition/Code/Data/"
 
 def load_and_display_image(filename):
     """Fonction permettant à partir du chemin d'acces filename, de charger et d'afficher l'image."""
@@ -16,7 +16,7 @@ def save_image(img,filename):
 
 def process_image_rotation(filename):
     img = cv2.imread(filename,0)
-    rows,cols = img.shape
+    rows,cols = img.shape[0],img.shape[1]
     M = cv2.getRotationMatrix2D((cols/2,rows/2),90,1)
     dst = cv2.warpAffine(img,M,(cols,rows))
     return(dst)
