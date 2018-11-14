@@ -1,11 +1,9 @@
 ﻿import cv2
 
 
-<<<<<<< HEAD
-chemin_morgan="C:/Users/proprietaire/Desktop/codingweek/facerecognition/facerecognition/Code/Data"
-=======
+
+
 chemin_morgan="C:/Users/proprietaire/Desktop/codingweek/facerecognition/facerecognition/Code/Data/"
->>>>>>> 0501022df631d7cdc6248af5651c93278f7913d7
 chemin_henri = "/Users/henridurliat/Desktop/facerecognition/Code/Data/"
 
 def load_image(filename):
@@ -24,12 +22,8 @@ def save_image(img,filename):
     cv2.imwrite(filename,img)
 
 def process_image_rotation(filename):
-<<<<<<< HEAD
-    img = cv2.imread(filename,0)
-=======
     """Fonction permettant à partir du chemin d'accès filename, de charger l'image et de la faire tourner de 90°."""
     img = cv2.imread(filename)
->>>>>>> 0501022df631d7cdc6248af5651c93278f7913d7
     rows,cols = img.shape[0],img.shape[1]
     M = cv2.getRotationMatrix2D((cols/2,rows/2),90,1)
     dst = cv2.warpAffine(img,M,(cols,rows))
