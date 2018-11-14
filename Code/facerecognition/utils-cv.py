@@ -16,3 +16,11 @@ def process_image_rotation(filename):
     cv2.waitKey(0) & 0xFF
     cv2.destroyAllWindows()
 
+def process_image_flou(filename) :
+    img = cv2.imread(filename)
+    blur = cv2.blur(img,(5,5))
+    cv2.imshow("image floue",blur)
+    cv2.waitKey(0) & 0xFF
+    cv2.destroyAllWindows()
+
+
