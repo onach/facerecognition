@@ -60,6 +60,3 @@ def face_detection_classifier(img,classifier):
     for (x,y,w,h) in faces :
         list_face_img.append(img[y:y+h, x:x+w])
     return(list_face_img)
-
-def face_detection_liste(img,liste_classifier):
-
