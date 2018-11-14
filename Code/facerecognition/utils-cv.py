@@ -35,6 +35,7 @@ def process_image_grey(filename):
 
 
 def process_image_flou(filename) :
+    """Fonction permettant de rendre une image floue"""
     img = cv2.imread(filename)
     blur = cv2.blur(img,(5,5))
     cv2.imshow("image floue",blur)
