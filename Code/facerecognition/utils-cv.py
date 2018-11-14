@@ -64,8 +64,13 @@ def face_detection(filename):
         cv2.waitKey(0)
         cv2.destroyAllWindows()
 
+def select_and_print_image_in_pic(filename):
+    '''Fonction qui affiche séparement des visages extraits d'une image'''
+    img = cv2.imread(filename)
+    faces = face_or_not(filename)[1]
+    for (x,y,w,h) in faces:
+        face_image = img[y:y+h, x:x+w]
+        display_image(face_image)
+
 #face_detection("/Users/henridurliat/Desktop/facerecognition/Code/Data/test.jpg")
-
-
-
-
+select_and_print_image_in_pic("/Users/henridurliat/Desktop/facerecognition/Code/Data/test.jpg")
