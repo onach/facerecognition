@@ -1,8 +1,5 @@
 ﻿import cv2
 
-
-
-
 chemin_morgan="C:/Users/proprietaire/Desktop/codingweek/facerecognition/facerecognition/Code/Data/"
 chemin_henri = "/Users/henridurliat/Desktop/facerecognition/Code/Data/"
 
@@ -42,5 +39,7 @@ def process_image_flou(filename) :
     cv2.imshow("image floue",blur)
     cv2.waitKey(0) & 0xFF
     cv2.destroyAllWindows()
+
+
 
 
