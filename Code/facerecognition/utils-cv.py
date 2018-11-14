@@ -46,7 +46,7 @@ def face_or_not(filename):
     '''Fonction qui détermine si une image contient un visage ou pas'''
     face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
     img = cv2.imread(filename)
-    gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     faces = face_cascade.detectMultiScale(gray, 1.3, 5)
     if faces == []:
         return([False,faces])
@@ -64,7 +64,7 @@ def face_detection(filename):
         cv2.waitKey(0)
         cv2.destroyAllWindows()
 
-face_detection("/Users/henridurliat/Desktop/test_facedetection.jpg")
+#face_detection("/Users/henridurliat/Desktop/facerecognition/Code/Data/test.jpg")
 
 
 
