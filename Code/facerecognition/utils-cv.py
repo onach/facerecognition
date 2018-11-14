@@ -1,6 +1,8 @@
 import cv2
 
+
 chemin_morgan="C:/Users/proprietaire/Desktop/codingweek/facerecognition/facerecognition/Code/Data"
+chemin_henri = "/Users/henridurliat/Desktop/facerecognition/Code/Data"
 
 def load_and_display_image(filename):
     """Fonction permettant à partir du chemin d'acces filename, de charger et d'afficher l'image."""
