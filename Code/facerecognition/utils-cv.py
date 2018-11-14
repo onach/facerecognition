@@ -1,6 +1,7 @@
 ﻿import cv2
 import numpy as np
-from matplotlib import pyplot as plt
+#import matplotlib.pyplot as plt
+
 
 chemin_morgan="C:/Users/proprietaire/Desktop/codingweek/facerecognition/facerecognition/Code/Data/"
 chemin_henri = "/Users/henridurliat/Desktop/facerecognition/Code/Data/"
@@ -28,7 +29,7 @@ def process_image_rotation(img):
     dst = cv2.warpAffine(img,M,(cols,rows))
     return(dst)
 
-def process_image_grey(img):
+def process_image_gray(img):
     """Fonction permettant à partir d'une image, la transforme en niveau de gris"""
     gray_img= cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     return(gray_img)
@@ -42,7 +43,7 @@ def process_image_flou(img) :
     cv2.destroyAllWindows()
 
 def process_image_laplacian(img):
-    """Fonction qui à partir d'une image, détecte les contours avec un gradient Laplacien et retourne la nouvelle image créée"""
+    """Fonction qui à partir d'une image, detecte les contours avec un gradient Laplacien, l'affiche et retourne la nouvelle image creee"""
     laplacian = cv2.Laplacian(img,cv2.CV_64F)
     plt.subplot(2,2,2)
     plt.imshow(laplacian,cmap = 'gray')
@@ -50,4 +51,15 @@ def process_image_laplacian(img):
     plt.xticks([]), plt.yticks([])
     return(laplacian)
 
+def face_detection_classifier(img,classifier):
+    """Fonction qui à partir d'une image, detecte un visage et renvoie une image redimensionnee"""
+    list_face_img=[]
+    face_cascade = cv2.CascadeClassifier(classifier)
+    gray_img = process_image_gray(img)
+    faces = face_cascade.detectMultiScale(gray_img, 1.3, 5)
+    for (x,y,w,h) in faces :
+        list_face_img.append(img[y:y+h, x:x+w])
+    return(list_face_img)
+
+def face_detection_liste(img,liste_classifier):
 
