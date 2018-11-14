@@ -1,4 +1,4 @@
-import cv2
+﻿import cv2
 
 
 chemin_morgan="C:/Users/proprietaire/Desktop/codingweek/facerecognition/facerecognition/Code/Data/"
@@ -33,5 +33,12 @@ def process_image_grey(filename):
     gray_img= cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     return(gray_img)
 
+
+def process_image_flou(filename) :
+    img = cv2.imread(filename)
+    blur = cv2.blur(img,(5,5))
+    cv2.imshow("image floue",blur)
+    cv2.waitKey(0) & 0xFF
+    cv2.destroyAllWindows()
 
 
