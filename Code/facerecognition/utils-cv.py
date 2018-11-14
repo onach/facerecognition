@@ -1,4 +1,5 @@
 ﻿import cv2
+import numpy as np
 
 chemin_morgan="C:/Users/proprietaire/Desktop/codingweek/facerecognition/facerecognition/Code/Data/"
 chemin_henri = "/Users/henridurliat/Desktop/facerecognition/Code/Data/"
@@ -40,6 +41,30 @@ def process_image_flou(filename) :
     cv2.imshow("image floue",blur)
     cv2.waitKey(0) & 0xFF
     cv2.destroyAllWindows()
+
+def face_or_not(filename):
+    '''Fonction qui détermine si une image contient un visage ou pas'''
+    face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+    img = cv2.imread(filename)
+    gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
+    faces = face_cascade.detectMultiScale(gray, 1.3, 5)
+    if faces == []:
+        return([False,faces])
+    else:
+        return([True,faces])
+
+def face_detection(filename):
+    '''Fonction qui encadre la position d'un visage reconnu par un rectangle de couleur'''
+    if face_or_not(filename)[0] == True:
+        img = cv2.imread(filename)
+        faces = face_or_not(filename)[1]
+        for (x,y,w,h) in faces:
+            cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),2)
+        cv2.imshow('img',img)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
+
+face_detection("/Users/henridurliat/Desktop/test_facedetection.jpg")
 
 
 
