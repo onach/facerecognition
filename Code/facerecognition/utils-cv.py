@@ -1,5 +1,6 @@
 ﻿import cv2
 import numpy as np
+import urllib3
 
 chemin_morgan="C:/Users/proprietaire/Desktop/codingweek/facerecognition/facerecognition/Code/Data/"
 chemin_henri = "/Users/henridurliat/Desktop/facerecognition/Code/Data/"
@@ -73,4 +74,32 @@ def select_and_print_image_in_pic(filename):
         display_image(face_image)
 
 #face_detection("/Users/henridurliat/Desktop/facerecognition/Code/Data/test.jpg")
-select_and_print_image_in_pic("/Users/henridurliat/Desktop/facerecognition/Code/Data/test2.jpg")
+#select_and_print_image_in_pic("/Users/henridurliat/Desktop/facerecognition/Code/Data/test2.jpg")
+
+def load_picture_from_website(URL):
+    '''Fonction qui récupère une image depuis un site web connaissant l'URL'''
+    im = urllib3.urlopen(URL)
+    image = im.read()
+    return(image)
+
+def décompose_video_en_frame(cheminvideo):
+    '''Fonction qui décompose une vidéo frame par frame et les retourne dans une liste'''
+    video= cv2.VideoCapture(cheminvideo)
+    success = True
+    liste_frame = []
+    while (success):
+        success, frame = video.read()
+        l.append(frame)
+    video.release()
+    cv2.destroyAllWindows()
+    return(l)
+
+def fichier_frame(liste_frame, nom, prenom,chemin_emplacement_dossier):
+    '''Fonction qui enregistre les frame dans un dossier dépendant du nom de la personne'''
+    fichier = open(chemin_emplacement_dossier + "nom" + "_" + "prenom", "w")
+    for image in liste_frame:
+        fichier.write(image)
+    fichier.close()
+
+load_picture_from_website("https://upload.wikimedia.org/wikipedia/fr/thumb/c/c4/LogoCS1.png/1200px-LogoCS1.png")
+
